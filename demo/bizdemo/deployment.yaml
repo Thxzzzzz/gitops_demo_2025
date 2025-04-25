@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: bizdemo
-          image: 379809513/demo-biz:v1.0.1
+          image: 379809513/demo-biz:1.0.1
           ports:
             - containerPort: 80
           resources:
