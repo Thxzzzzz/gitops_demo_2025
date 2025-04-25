@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/Thxzzzzz/gitops_demo_2025.git
       revision: HEAD
       directories:
-      - path: demo/bizdemo/*
+      - path: demo/*
   template:
     metadata:
       name: '{{path.basename}}'
