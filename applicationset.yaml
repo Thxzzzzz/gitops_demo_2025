@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-2025
+  namespace: argocd
+spec:
+  syncPolicy:
+      preserveResourcesOnDeletion: true
+  generators:
+  - git:
+      repoURL: https://github.com/Thxzzzzz/gitops_demo_2025.git
+      revision: HEAD
+      directories:
+      - path: demo/bizdemo/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/Thxzzzzz/gitops_demo_2025.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace:  demo
+      syncPolicy:
+        automated: {}
+
+        

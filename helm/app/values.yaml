@@ -1,0 +1,8 @@
+appName: demobiz-helm
+image: 379809513/demo-biz:v2.2
+
+# service 配置
+service:
+    type: NodePort
+    port: 80
+    nodePort: 30080
