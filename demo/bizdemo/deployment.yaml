@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bizdemo
+#  namespace: {{ .Values.namespace }}
+  labels:
+    app: bizdemo
+spec:
+  revisionHistoryLimit: 15
+  selector:
+    matchLabels:
+      app: bizdemo
+  template:
+    metadata:
+      labels:
+        app: bizdemo
+    spec:
+      containers:
+        - name: bizdemo
+          image: 379809513/demo-biz:v1.0.0
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
